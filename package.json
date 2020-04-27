@@ -1,0 +1,25 @@
+{
+  "name": "lan_le_hvbds_test",
+  "version": "1.0.0",
+  "description": "This is a test project for HVBDS",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lanle98/Lan_Le_HVBDS_Test.git"
+  },
+  "author": "Lan Le",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lanle98/Lan_Le_HVBDS_Test/issues"
+  },
+  "homepage": "https://github.com/lanle98/Lan_Le_HVBDS_Test#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.3"
+  }
+}

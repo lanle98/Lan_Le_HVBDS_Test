@@ -1,17 +1,28 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <img alt="Vue logo" src="./images/hvbds_logo.png" />
+    <div v-for="project in projects" :key="project.id">
+      <Project :project="project" />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Project from "./components/Project.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld
+    Project
+  },
+  data() {
+    return {
+      projects: [
+        { id: 1, name: "project 1", budget: 2000 },
+        { id: 2, name: "project 2", budget: 2000 },
+        { id: 3, name: "project 3", budget: 2000 }
+      ]
+    };
   },
   mounted() {
     fetch("/api")

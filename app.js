@@ -15,7 +15,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-app.use("/api", require('./routes/index.js'))
+app.use("/api", require('./routes/api.js'))
+
 
 
 app.use(express.static(path.join(__dirname, './client/dist')))

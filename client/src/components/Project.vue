@@ -16,7 +16,9 @@ export default {
     };
   },
   mounted() {
-    this.project_detail = this.$route.params.project;
+    fetch(`/api/project/${this.$attrs.id}`)
+      .then(res => res.json())
+      .then(data => (this.project_detail = data.projects[0]));
   },
   components: { Invest }
 };

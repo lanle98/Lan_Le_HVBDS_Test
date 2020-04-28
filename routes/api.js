@@ -11,4 +11,12 @@ router.get("/", (req, res) => {
 
 })
 
+router.get("/project/:id", (req, res) => {
+    let query = `SELECT * FROM tbl_projects WHERE id=${req.params.id}`
+    mysql.query(query, (err, result) => {
+        res.json({ projects: result })
+    })
+
+})
+
 module.exports = router

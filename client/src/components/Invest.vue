@@ -1,10 +1,18 @@
 <template>
   <div>
-    <h3>Budget: {{this.$props.budget}}</h3>
-    <form action>
-      <input v-model="input" name="percentage" placeholder="Percent you want to invest..." />
+    <form method="POST">
+      <input
+        v-model="input"
+        name="percentage"
+        min="0"
+        max="100"
+        type="range"
+        placeholder="number from 1-100"
+      />
+      {{this.input}}%
+      <h2>Money: {{this.convertToMoney}}</h2>
+      <button type="submit">Start Investing</button>
     </form>
-    <h2>{{this.convertToMoney}}</h2>
   </div>
 </template>
 
@@ -13,7 +21,7 @@ export default {
   props: ["budget"],
   data() {
     return {
-      input: "",
+      input: 0,
       result: ""
     };
   },

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form method="POST">
+    <form>
       <input
         v-model="input"
         name="percentage"
@@ -11,7 +11,8 @@
       />
       {{this.input}}%
       <h2>Money: {{this.convertToMoney}}</h2>
-      <button type="submit">Start Investing</button>
+      <button @click.prevent="checkout" type="submit">Check out</button>
+      <p>{{this.mssg}}</p>
     </form>
   </div>
 </template>
@@ -22,13 +23,23 @@ export default {
   data() {
     return {
       input: 0,
-      result: ""
+      mssg: ""
     };
   },
   computed: {
     convertToMoney() {
       let value = (this.input * this.$props.budget) / 100;
-      return value.toString();
+      return value;
+    }
+  },
+  methods: {
+    checkout() {
+      if (this.input !== 0) {
+        this.mssg = "";
+        this.$emit("checkout", true, this.convertToMoney, this.input);
+      } else {
+        this.mssg = "Please choose how many percent";
+      }
     }
   }
 };

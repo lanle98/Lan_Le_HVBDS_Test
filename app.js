@@ -19,6 +19,7 @@ app.use("/api", require('./routes/api.js'))
 
 
 
+
 app.use(express.static(path.join(__dirname, './client/dist')))
 
 

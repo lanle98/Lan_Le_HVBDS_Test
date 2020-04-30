@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>{{project_detail.name}}</h1>
-    <h2>Budget: {{project_detail.budget}}</h2>
+    <h2>Budget: {{project_detail.budget}}VND</h2>
     <Invest v-if="!this.checkout_status" @checkout="checkout" :budget="project_detail.budget" />
     <Checkout v-else :percent="this.percent" :money="this.money" />
   </div>

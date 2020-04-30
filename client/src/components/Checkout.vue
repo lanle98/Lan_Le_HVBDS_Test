@@ -4,15 +4,19 @@
     <form action="../api/checkout" method="POST">
       <div>
         <label>First Name</label>
-        <input name="first_name" type="text" />
+        <input required name="first_name" type="text" />
       </div>
       <div>
         <label>Last Name</label>
-        <input name="last_name" type="text" />
+        <input required name="last_name" type="text" />
       </div>
       <div>
         <label>Phone Number</label>
-        <input name="phone" type="number" />
+        <input required name="phone" type="number" />
+      </div>
+      <div>
+        <label>Email</label>
+        <input required name="email" type="email" />
       </div>
       <div>
         <label>Money</label>
@@ -35,11 +39,7 @@ export default {
       mssg: ""
     };
   },
-  mounted() {
-    fetch("../api/checkout")
-      .then(res => res.json())
-      .then(data => console.log(data));
-  },
+  mounted() {},
   methods: {
     invest() {
       if (this.first_name == "" || this.last_name == "" || this.phone == "") {

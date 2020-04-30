@@ -10,7 +10,7 @@
         placeholder="number from 1-100"
       />
       {{this.input}}%
-      <h2>Money: {{this.convertToMoney}}</h2>
+      <h2>Money: {{this.convertToMoney}}VND</h2>
       <button @click.prevent="checkout" type="submit">Check out</button>
       <p>{{this.mssg}}</p>
     </form>
@@ -34,11 +34,11 @@ export default {
   },
   methods: {
     checkout() {
-      if (this.input !== 0) {
+      if (this.input == 0) {
+        this.mssg = "Please choose your percentage";
+      } else {
         this.mssg = "";
         this.$emit("checkout", true, this.convertToMoney, this.input);
-      } else {
-        this.mssg = "Please choose how many percent";
       }
     }
   }

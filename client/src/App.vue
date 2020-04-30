@@ -1,6 +1,8 @@
 <template>
   <div id="app" class="container">
-    <img alt="Vue logo" src="./images/hvbds_logo.png" />
+    <router-link to="/">
+      <img class="mb-5" alt="Vue logo" src="./images/hvbds_logo.png" />
+    </router-link>
 
     <router-view :projects="this.projects"></router-view>
   </div>

@@ -1,29 +1,35 @@
 <template>
-  <div class="checkout">
+  <div class="checkout container">
     <h1>Checkout</h1>
     <form action="../api/checkout" method="POST">
-      <div>
-        <label>First Name</label>
-        <input required name="first_name" type="text" />
+      <div class="row m-2">
+        <label class="col-4">First Name</label>
+        <input class="col-8" required name="first_name" type="text" />
       </div>
-      <div>
-        <label>Last Name</label>
-        <input required name="last_name" type="text" />
+      <div class="row m-2">
+        <label class="col-4">Last Name</label>
+        <input class="col-8" required name="last_name" type="text" />
       </div>
-      <div>
-        <label>Phone Number</label>
-        <input required name="phone" type="number" />
+      <div class="row m-2">
+        <label class="col-4">Phone Number</label>
+        <input class="col-8" required name="phone" type="number" />
       </div>
-      <div>
-        <label>Email</label>
-        <input required name="email" type="email" />
+      <div class="row m-2">
+        <label class="col-4">Email</label>
+        <input class="col-8" required name="email" type="email" />
       </div>
-      <div>
-        <label>Money</label>
-        <input name="money" type="number" :value="this.$props.money" readonly />
+      <div class="row m-2">
+        <label class="col-4">Money</label>
+        <input
+          class="col-8"
+          name="money"
+          type="number"
+          :value="this.$props.money"
+          readonly
+        />
       </div>
       <button type="submit">Start Investing</button>
-      <p>{{mssg}}</p>
+      <p>{{ mssg }}</p>
     </form>
   </div>
 </template>
@@ -36,7 +42,7 @@ export default {
       first_name: "",
       last_name: "",
       phone: "",
-      mssg: ""
+      mssg: "",
     };
   },
   mounted() {},
@@ -47,7 +53,7 @@ export default {
       } else {
         this.mssg = "";
       }
-    }
-  }
+    },
+  },
 };
 </script>

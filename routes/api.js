@@ -65,7 +65,7 @@ router.get("/successful", (req, res) => {
   let insert_transtraction = `INSERT INTO tbl_transactions(orderId,amount,transId,message,responseTime,signature) VALUES (${req.query.orderId},${req.query.amount},${req.query.transId},'${req.query.message}','${req.query.responseTime}','${req.query.signature}')`;
   console.log(insert_transtraction);
   mysql.query(insert_transtraction, (err, result) => {
-    res.redirect("http://localhost:8080/successful");
+    res.redirect("../successful");
   });
 });
 

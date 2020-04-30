@@ -1,22 +1,25 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div id="app" class="container">
+    <router-link to="/">
+      <img class="mb-5" alt="Vue logo" src="./images/hvbds_logo.png" />
+    </router-link>
+
+    <router-view :projects="this.projects"></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
 export default {
   name: "App",
-  components: {
-    HelloWorld
+  data() {
+    return {
+      projects: []
+    };
   },
   mounted() {
     fetch("/api")
       .then(res => res.json())
-      .then(data => console.log(data));
+      .then(data => (this.projects = data.projects));
   }
 };
 </script>
